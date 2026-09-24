@@ -59,10 +59,11 @@ Este projeto analisa o comportamento de consumo de uma amostra representativa de
 
 ## 💡 Insights Obtidos e Conclusões
 
-- 🟢 **O Plano Surf é a principal fonte de receita extra:** Mais de 40% dos usuários do plano Surf excedem a franquia de dados mensalmente. O custo por GB excedente ($10/GB) eleva a conta média desse plano para valores próximos ou superiores aos do plano Ultimate em diversos meses.
-- 🟡 **O Volume de Chamadas e SMS não impacta substancialmente a receita:** A maioria dos usuários de ambos os planos não atinge o limite de minutos ou SMS. O tráfego de internet é o fator determinante no faturamento extra.
-- 🔴 **Diferença de Receita Significativa (Teste T):** O teste t de Student rejeitou a hipótese nula com um *p-value* extremamente baixo ($p < 0.05$), confirmando estatisticamente que os planos *Surf* e *Ultimate* possuem médias de faturamento mensal diferentes.
-- ⚪ **Receita Regional (NY-NJ vs. Outras Regiões):** Não foi encontrada diferença estatisticamente significativa entre a receita gerada na área metropolitana de *New York-New Jersey* e as demais cidades da amostra.
+- 🟢 **Plano Ultimate Gera Maior Receita Média:** A receita média mensal do plano Ultimate ($72,31) é estatisticamente superior à do plano Surf ($60,71). Além disso, o plano Ultimate apresenta maior estabilidade e previsibilidade de receita por conta do menor desvio padrão.
+- 🟡 **O Uso de Dados de Internet é o Fator Determinante:** A maioria dos usuários de ambos os planos não atinge os limites de chamadas ou SMS. O tráfego de dados (média de ~16,7 GB no Surf e ~17,3 GB no Ultimate) é o principal gerador de tarifas excedentes ($10/GB) no plano Surf, já que sua franquia base é de 15 GB.
+- 🔴 **Diferença Significativa Entre os Planos (Hipótese 1):** O Teste T de Student rejeitou a hipótese nula ($p < 0,05$), confirmando que a receita média mensal do plano Ultimate é significativamente maior que a do plano Surf.
+- 🟣 **Diferença Regional Significativa (Hipótese 2):** O Teste T de Student rejeitou a hipótese nula ($p < 0,05$), demonstrando que a receita média gerada pelos clientes da área metropolitana de *NY-NJ* diverge estatisticamente da receita dos clientes das demais regiões.
+- 💼 **Recomendação Comercial:** Recomenda-se direcionar uma parcela maior do orçamento publicitário para a captação de clientes do **Plano Ultimate**, garantindo maior faturamento por usuário e previsibilidade financeira para a empresa.
 
 ---
 
