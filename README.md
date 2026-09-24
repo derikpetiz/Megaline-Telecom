@@ -1,15 +1,27 @@
-# 📞 Megaline Telecom: Análise Estatística de Planos Pré-Pagos
+# 📞 Megaline Telecom: Análise Estatística de Planos Pré-Pagos e Receita
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-1.5+-150458.svg)
 ![Seaborn](https://img.shields.io/badge/Seaborn-0.12+-3776AB.svg)
 ![SciPy](https://img.shields.io/badge/SciPy-1.10+-8CAAE6.svg)
 
-## 📌 Visão Geral do Projeto
+## 📌 Visão Geral e Contexto do Negócio
 
-Este projeto realiza uma Análise Exploratória de Dados (EDA) e Teste de Hipóteses Estatísticas para a **Megaline**, uma empresa de telecomunicações que oferece dois planos pré-pagos: **Surf** e **Ultimate**.
+A **Megaline** é uma operadora de telefonia móvel que oferece dois planos pré-pagos aos seus clientes: **Surf** e **Ultimate**. O departamento comercial precisa entender qual dos planos gera mais receita para otimizar o investimento e o direcionamento das campanhas publicitárias.
 
-O objetivo principal é analisar o comportamento de consumo de uma amostra de 500 clientes para determinar qual dos planos gera maior receita. Esta informação serve de subsidio para o departamento comercial otimizar a alocação do orçamento de publicidade.
+Este projeto analisa o comportamento de consumo de uma amostra representativa de **500 usuários**, avaliando volume de chamadas, mensagens enviadas, tráfego de dados e o faturamento total gerado por cliente ao longo do ano.
+
+---
+
+## ❓ Hipóteses Formuladas
+
+1. **Hipótese de Consumo de Dados:** Usuários do plano *Surf* ultrapassam o limite de franquia de dados (15 GB) com maior frequência que os usuários do plano *Ultimate* (30 GB), gerando receita significativa por cobrança excedente.
+2. **Hipótese Estatística 1 (H0/H1):** 
+   - **H0:** A receita média gerada pelos usuários dos planos *Surf* e *Ultimate* é igual.
+   - **H1:** A receita média gerada pelos usuários dos planos *Surf* e *Ultimate* difere significativamente.
+3. **Hipótese Estatística 2 (H0/H1):**
+   - **H0:** A receita média dos usuários da região de *NY-NJ* é igual à receita dos usuários de outras regiões.
+   - **H1:** A receita média dos usuários da região de *NY-NJ* difere da receita das demais regiões.
 
 ---
 
@@ -18,53 +30,58 @@ O objetivo principal é analisar o comportamento de consumo de uma amostra de 50
 | Métrica / Tarifa | Plano Surf | Plano Ultimate |
 | :--- | :--- | :--- |
 | **Mensalidade Base** | **$20** | **$70** |
-| **Pacote Mensal Incluído** | 500 minutos <br> 50 SMS <br> 15 GB | 3.000 minutos <br> 1.000 SMS <br> 30 GB |
+| **Pacote Incluído** | 500 min \| 50 SMS \| 15 GB | 3.000 min \| 1.000 SMS \| 30 GB |
 | **Minuto Excedente** | $0,03 / min | $0,01 / min |
 | **SMS Excedente** | $0,03 / mensagem | $0,01 / mensagem |
 | **GB Excedente** | $10 / GB | $7 / GB |
 
-*Nota: As chamadas individuais são arredondadas para cima (próximo minuto). O tráfego mensal de internet é arredondado para o Gigabyte superior ao final do mês.*
+---
+
+## 📈 Análise Visual e Gráficos do Projeto
+
+### 1. Comparativo de Receita Média Mensal por Plano
+![Receita Média Mensal](assets/receita_media_mensal.png)
+*Figura 1: Faturamento médio mensal comparando os planos Surf e Ultimate ao longo dos doze meses.*
 
 ---
 
-## 🛠️ Tecnologias e Bibliotecas Utilizadas
+### 2. Distribuição do Consumo Mensal de Internet (GB)
+![Consumo de Internet](assets/consumo_internet_gb.png)
+*Figura 2: Distribuição de uso de dados em GB destacando o limite da franquia do plano Surf (15 GB) e a zona de cobrança adicional.*
+
+---
+
+### 3. Metodologia do Teste de Hipóteses Estatísticas
+![Metodologia do Teste](assets/metodologia_testes.png)
+*Figura 3: Fluxo metodológico utilizado no Teste T de Student para validação das hipóteses estatísticas.*
+
+---
+
+## 💡 Insights Obtidos e Conclusões
+
+- 🟢 **O Plano Surf é a principal fonte de receita extra:** Mais de 40% dos usuários do plano Surf excedem a franquia de dados mensalmente. O custo por GB excedente ($10/GB) eleva a conta média desse plano para valores próximos ou superiores aos do plano Ultimate em diversos meses.
+- 🟡 **O Volume de Chamadas e SMS não impacta substancialmente a receita:** A maioria dos usuários de ambos os planos não atinge o limite de minutos ou SMS. O tráfego de internet é o fator determinante no faturamento extra.
+- 🔴 **Diferença de Receita Significativa (Teste T):** O teste t de Student rejeitou a hipótese nula com um *p-value* extremamente baixo ($p < 0.05$), confirmando estatisticamente que os planos *Surf* e *Ultimate* possuem médias de faturamento mensal diferentes.
+- ⚪ **Receita Regional (NY-NJ vs. Outras Regiões):** Não foi encontrada diferença estatisticamente significativa entre a receita gerada na área metropolitana de *New York-New Jersey* e as demais cidades da amostra.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
 
 - **Linguagem:** Python 3.8+
-- **Manipulação de Dados:** `pandas`, `numpy`
-- **Visualização de Dados:** `matplotlib`, `seaborn`
-- **Análise Estatística:** `scipy.stats` (Teste T de Student)
-
----
-
-## 🔍 Etapas e Metodologia
-
-1. **Pré-processamento e Limpeza de Dados:**
-   - Conversão de colunas de data para o tipo `datetime`.
-   - Aplicação de regras de negócio: arredondamento de chamadas individuais para o minuto superior.
-   - Tratamento de inconsistências e valores ausentes (ex: chamadas com duração de 0 minutos representando chamadas perdidas).
-2. **Engenharia de Recursos e Agregação:**
-   - Agrupamento do consumo dos usuários (chamadas, mensagens e tráfego de dados) em base mensal.
-   - Conversão do volume mensal de Megabytes para Gigabytes (arredondando para cima).
-   - Cálculo da receita mensal individual gerada por cada usuário, considerando limites do plano e cobranças por excesso.
-3. **Análise Exploratória de Dados (EDA):**
-   - Comparação das médias e distribuições de minutos falados, mensagens enviadas e GBs consumidos entre os dois planos ao longo dos meses.
-   - Análise de variância e desvio padrão do comportamento dos clientes.
-4. **Testes de Hipóteses Estatísticas:**
-   - **Hipótese 1:** A receita média dos usuários dos planos Ultimate e Surf difere entre si.
-   - **Hipótese 2:** A receita média dos usuários da região de NY-NJ difere da receita dos usuários de outras regiões.
-
----
-
-## 📈 Principais Insights e Conclusões
-
-- **Driver de Receita:** O **Plano Surf** frequentemente gera uma receita total expressiva por meio de taxas de excedente (especialmente consumo extra de dados de internet), apesar de possuir uma mensalidade base significativamente menor que o plano Ultimate.
-- **Comportamento de Consumo:** Clientes de ambos os planos apresentam médias de duração de chamadas semelhantes, porém o limite de 15 GB do Plano Surf é frequentemente superado, gerando cobranças adicionais recorrentes.
+- **Bibliotecas:** `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`
 
 ---
 
 ## 🚀 Como Executar o Projeto
 
-1. Clone o repositório:
-   ```bash
-   git clone [https://github.com/derikpetiz/telecom-megaline-plan-analysis.git](https://github.com/derikpetiz/telecom-megaline-plan-analysis.git)
-   cd telecom-megaline-plan-analysis
+```bash
+# 1. Clonar o repositório
+git clone [https://github.com/derikpetiz/telecom-megaline-plan-analysis.git](https://github.com/derikpetiz/telecom-megaline-plan-analysis.git)
+cd telecom-megaline-plan-analysis
+
+# 2. Instalar dependências
+pip install -r requirements.txt
+
+# 3. Executar o script principal
+python main.py
