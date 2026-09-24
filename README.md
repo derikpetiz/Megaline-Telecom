@@ -40,19 +40,19 @@ Este projeto analisa o comportamento de consumo de uma amostra representativa de
 ## 📈 Análise Visual e Gráficos do Projeto
 
 ### 1. Comparativo de Receita Média Mensal por Plano
-![Receita Média Mensal](assets/receita_media_mensal.png)
+![Receita Média Mensal](receita_media_mensal.png)
 *Figura 1: Faturamento médio mensal comparando os planos Surf e Ultimate ao longo dos doze meses.*
 
 ---
 
 ### 2. Distribuição do Consumo Mensal de Internet (GB)
-![Consumo de Internet](assets/consumo_internet_gb.png)
+![Consumo de Internet](consumo_internet_gb.png)
 *Figura 2: Distribuição de uso de dados em GB destacando o limite da franquia do plano Surf (15 GB) e a zona de cobrança adicional.*
 
 ---
 
 ### 3. Metodologia do Teste de Hipóteses Estatísticas
-![Metodologia do Teste](assets/metodologia_testes.png)
+![Metodologia do Teste](metodologia_testes.png)
 *Figura 3: Fluxo metodológico utilizado no Teste T de Student para validação das hipóteses estatísticas.*
 
 ---
