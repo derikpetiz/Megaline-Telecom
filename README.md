@@ -77,11 +77,8 @@ Este projeto analisa o comportamento de consumo de uma amostra representativa de
 
 ```bash
 # 1. Clonar o repositório
-git clone [https://github.com/derikpetiz/telecom-megaline-plan-analysis.git](https://github.com/derikpetiz/telecom-megaline-plan-analysis.git)
-cd telecom-megaline-plan-analysis
+git clone [https://github.com/derikpetiz/Megaline-Telecom.git](https://github.com/derikpetiz/Megaline-Telecom.git)
+cd Megaline-Telecom
 
-# 2. Instalar dependências
-pip install -r requirements.txt
-
-# 3. Executar o script principal
-python main.py
+# 2. Executar a análise
+Abra e execute o arquivo megaline.ipynb no Jupyter Notebook, VS Code ou Google Colab.
